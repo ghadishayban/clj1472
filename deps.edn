@@ -1,0 +1,12 @@
+{:paths ["src"]
+ :deps {org.clojure/clojure {:local/root "/Users/ghadi/dev/clj1472/repro/clojure-1.10.1-clj1472.jar"
+                             ;; jar deps read the internal pom and don't filter by classifier!
+                             :exclusions [org.clojure/test.generative
+                                          javax.xml.ws/jaxws-api]}
+        org.clojure/core.specs.alpha {:mvn/version "0.2.44"}
+        ;; not AOTed spec.alpha
+        org.clojure/spec.alpha {:git/url "https://github.com/ghadishayban/spec.alpha.git" :sha "000ac4f82f805f7b89f3413bdc680813a6246b29"}}
+
+ :aliases {:compile {:extra-paths ["classes"] :jvm-opts ["-Dclojure.spec.skip-macros=true"]}}
+
+}
